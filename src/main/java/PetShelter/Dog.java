@@ -111,4 +111,12 @@ public class Dog extends OrganicPets {
         }
 
     }
+
+    @Override
+    public void playWithAnimals() {
+        hunger = hunger - 2;
+        thirst = thirst - 4;
+        soilLevel = soilLevel - 2;
+        happiness = happiness + 10;
+    }
 }

@@ -29,6 +29,12 @@ public class RoboCat extends InorganicPets {
     }
 
     @Override
+    public void playWithAnimals() {
+        oilLevel = oilLevel - 5;
+        happiness = happiness + 10;
+    }
+
+    @Override
     public void tick() {
         oilLevel = oilLevel - 2;
         happiness = happiness - 3;

@@ -32,11 +32,11 @@ public class ShelterApp {
 
             if (catOrDog.equals("dog") && petType.equals("living")) {
 
-                Dog test = new Dog(name, 10,25, 25, 25, 0, true);
+                Dog test = new Dog(name, 10, 25, 25, 25, 0, true);
                 myPets.put(name, test);
 
             } else if (catOrDog.equals("dog") && petType.equals("robot")) {
-                RoboDog test = new RoboDog(name, 10,25, 25, false);
+                RoboDog test = new RoboDog(name, 10, 25, 25, false);
                 myPets.put(name, test);
 
             } else if (catOrDog.equals("cat") && petType.equals("living")) {
@@ -76,6 +76,8 @@ public class ShelterApp {
                 } else if (entry.getValue().getClass().getName().equals("PetShelter.Cat")) {
                     Cat placeHolder = (Cat) entry.getValue();
 
+                    System.out.println("THIS IS THE CAT HEALTH" + placeHolder.getHealth());
+
 
                     System.out.println("Name: " + placeHolder.getName() + " Animal Type: Cat" + " Health: " + placeHolder.getHealth() + " Hunger: " + placeHolder.getHunger() + " Thirst: " + placeHolder.getThirst() + " Happiness: " + placeHolder.getHappiness() + " Litterbox Soil Level: " + placeHolder.getSoilLevel());
                     placeHolder.editHealth();
@@ -106,6 +108,7 @@ public class ShelterApp {
             System.out.println("Press 6: To clean out the cat litterbox");
             System.out.println("Press 7: To add a new pet");
             System.out.println("Press 8: To adopt a pet");
+            System.out.println("Press 9: To play with a pet");
 
             answer = input.nextInt();
 
@@ -158,71 +161,55 @@ public class ShelterApp {
 
                     if (entry.getValue().getClass().getName().equals("PetShelter.Dog")) {
                         System.out.println(entry.getValue().name);
-                    }
-
-                    else if (entry.getValue().getClass().getName().equals("PetShelter.RoboDog")){
+                    } else if (entry.getValue().getClass().getName().equals("PetShelter.RoboDog")) {
                         System.out.println(entry.getValue().name);
                     }
                 }
                 input.nextLine();
                 String answerHold = input.nextLine();
 
-               for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
-
-                   if (answerHold.toLowerCase().equals(entry.getValue().name.toLowerCase())){
-
-                       if(entry.getValue().getClass().getName().equals("PetShelter.RoboDog")) {
-
-                           RoboDog placeHolder = (RoboDog) entry.getValue();
-                           placeHolder.goOnWalk();
-
-
-
-                       }
-                       else if(entry.getValue().getClass().getName().equals("PetShelter.Dog")){
-                           Dog placeHolder = (Dog) entry.getValue();
-                           placeHolder.walk();
-                       }
-
-
-                   }
-               }
-
-
-
-
-
-            }
-            else if( answer == 5) {
                 for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
 
+                    if (answerHold.toLowerCase().equals(entry.getValue().name.toLowerCase())) {
 
-                    if(entry.getValue().getClass().getName().equals("PetShelter.Dog")){
+                        if (entry.getValue().getClass().getName().equals("PetShelter.RoboDog")) {
 
-                    Dog placeHolder = (Dog) entry.getValue();
-                    placeHolder.cleanCages();
+                            RoboDog placeHolder = (RoboDog) entry.getValue();
+                            placeHolder.goOnWalk();
 
 
-                    }
+                        } else if (entry.getValue().getClass().getName().equals("PetShelter.Dog")) {
+                            Dog placeHolder = (Dog) entry.getValue();
+                            placeHolder.walk();
+                        }
 
 
                     }
                 }
 
 
+            } else if (answer == 5) {
+                for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
 
 
+                    if (entry.getValue().getClass().getName().equals("PetShelter.Dog")) {
+
+                        Dog placeHolder = (Dog) entry.getValue();
+                        placeHolder.cleanCages();
 
 
-            else if (answer == 6) {
+                    }
+
+
+                }
+            } else if (answer == 6) {
                 for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
                     if (entry.getValue().getClass().getName().equals("PetShelter.Cat")) {
                         Cat placeHolder = (Cat) entry.getValue();
                         placeHolder.cleanLitterbox();
                     }
                 }
-            }
-            else if (answer == 7) {
+            } else if (answer == 7) {
                 input.nextLine();
                 String name;
                 String catOrDog;
@@ -237,11 +224,11 @@ public class ShelterApp {
 
                 if (catOrDog.equals("dog") && petType.equals("living")) {
 
-                    Dog test = new Dog(name, 10,25, 25, 25, 0, true);
+                    Dog test = new Dog(name, 10, 25, 25, 25, 0, true);
                     myPets.put(name, test);
 
                 } else if (catOrDog.equals("dog") && petType.equals("robot")) {
-                    RoboDog test = new RoboDog(name, 10,25, 25, false);
+                    RoboDog test = new RoboDog(name, 10, 25, 25, false);
                     myPets.put(name, test);
 
                 } else if (catOrDog.equals("cat") && petType.equals("living")) {
@@ -253,25 +240,43 @@ public class ShelterApp {
                     myPets.put(name, test);
 
                 }
-            }
-
-            else if (answer == 8) {
+            } else if (answer == 8) {
                 input.nextLine();
                 String key = "";
                 System.out.println("Who do you want to adopt from the shelter?");
                 String removeAnimal = input.nextLine().toLowerCase();
                 for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
 
-                    if(entry.getValue().name.toLowerCase().equals(removeAnimal)){
+                    if (entry.getValue().name.toLowerCase().equals(removeAnimal)) {
 
                         key = entry.getKey();
 
                     }
 
 
-
                 }
                 myPets.remove(key);
+            } else if (answer == 9) {
+
+                System.out.println("Who do you want to take on a walk?");
+                for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
+
+                    System.out.println(entry.getValue().name);
+                }
+                input.nextLine();
+                String answerHold = input.nextLine();
+
+                for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
+
+                    if (answerHold.toLowerCase().equals(entry.getValue().name.toLowerCase())) {
+
+                        entry.getValue().playWithAnimals();
+
+
+                    }
+                }
+
+
             }
             if (myPets.size() == 0) {
 
@@ -288,11 +293,11 @@ public class ShelterApp {
 
                 if (catOrDog.equals("dog") && petType.equals("living")) {
 
-                    Dog test = new Dog(name, 10,25, 25, 25, 0, true);
+                    Dog test = new Dog(name, 10, 25, 25, 25, 0, true);
                     myPets.put(name, test);
 
                 } else if (catOrDog.equals("dog") && petType.equals("robot")) {
-                    RoboDog test = new RoboDog(name, 10,25, 25, false);
+                    RoboDog test = new RoboDog(name, 10, 25, 25, false);
                     myPets.put(name, test);
 
                 } else if (catOrDog.equals("cat") && petType.equals("living")) {

@@ -18,6 +18,8 @@ public abstract class  Pets  {
     }
     public abstract void editHealth();
 
+    public abstract void playWithAnimals();
+
     public abstract void tick();
 
     public String getName() {

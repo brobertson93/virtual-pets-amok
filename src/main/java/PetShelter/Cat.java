@@ -7,7 +7,7 @@ public class Cat extends OrganicPets {
     public static int soilLitterbox;
 
     public Cat(String name, int health, int hunger, int thirst, int happiness,  boolean isAlive) {
-        super(name, hunger, health, thirst, happiness, isAlive);
+        super(name, health, hunger, thirst, happiness, isAlive);
 
 
 
@@ -46,6 +46,8 @@ public void cleanLitterbox () {
         soilLitterbox = soilLitterbox + 1;
     }
 
+
+
     public int getSoilLevel() {
         return soilLitterbox;
     }
@@ -57,6 +59,14 @@ public void cleanLitterbox () {
     @Override
     public void editHealth() {
 
+    }
+
+    @Override
+    public void playWithAnimals() {
+        hunger = hunger - 2;
+        thirst = thirst - 4;
+        soilLitterbox = soilLitterbox + 2;
+        happiness = happiness + 10;
     }
 }
 

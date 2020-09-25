@@ -14,6 +14,7 @@ public abstract  class InorganicPets extends Pets {
 
     public abstract void oil();
 
+
     public int getOilLevel() {
         return oilLevel;
     }
