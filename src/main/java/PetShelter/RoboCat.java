@@ -24,6 +24,8 @@ public class RoboCat extends InorganicPets {
             int heathLevel = getHealth() + 1;
             setHealth(heathLevel);
         }
+
+
     }
 
     @Override

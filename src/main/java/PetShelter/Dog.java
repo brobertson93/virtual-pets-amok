@@ -64,5 +64,51 @@ public class Dog extends OrganicPets {
     @Override
     public void editHealth() {
 
+        if (hunger < 0) {
+            int healthLevel = getHealth() - 2;
+            System.out.println("--------" + name + " is feeling really hungry, please feed them!!! --------");
+
+            setHealth(healthLevel);
+        }
+        else if (hunger > 25) {
+            int healthLevel = getHealth() + 1;
+            setHealth(healthLevel);
+        }
+
+        if (thirst < 0) {
+            int healthLevel = getHealth() - 2;
+            System.out.println("--------" + name + " is really thirsty, they need water! --------");
+
+            setHealth(healthLevel);
+        }
+        else if (thirst > 25) {
+            int healthLevel = getHealth() + 1;
+            setHealth(healthLevel);
+        }
+
+        if (happiness < 0) {
+            int healthLevel = getHealth() - 2;
+            System.out.println("--------" + name + " is not very happy try taking them on a walk! --------");
+
+            setHealth(healthLevel);
+        }
+        else if (happiness > 25) {
+            int healthLevel = getHealth() + 1;
+            setHealth(healthLevel);
+        }
+
+        if (soilLevel > 25) {
+            int healthLevel = getHealth() - 4;
+            setHealth(healthLevel);
+            System.out.println("--------" + name + " cage is too dirty, it needs to be cleaned!!! --------");
+        }
+
+    }
+
+    public void cleanCages() {
+        hunger = hunger -4;
+        thirst = thirst -2;
+        happiness = happiness - 5;
+        soilLevel = 0;
     }
 }

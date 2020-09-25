@@ -41,7 +41,10 @@ public class DogTest {
         underTest.walk();
     }
 
-
+    @Test
+    public void shouldHaveCagesCleaned() {
+        underTest.cleanCages();
+    }
 
 
 }

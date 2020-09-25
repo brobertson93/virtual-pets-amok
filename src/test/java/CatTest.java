@@ -60,7 +60,7 @@ public class CatTest {
         assertEquals(underTest.getSoilLevel(), 0);
 
     }
-
+@Test
     public void checksThePetsHealthAndModifiesIt(){
         underTest.editHealth();
 

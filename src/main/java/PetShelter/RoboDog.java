@@ -33,7 +33,7 @@ public class RoboDog extends InorganicPets {
             setHealth(heathLevel);
         }
 
-        else if (happiness < 0) {
+         if (getHappiness() < 0) {
             int healthLevel = getHealth() -2;
             setHealth(healthLevel);
         }
