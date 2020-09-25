@@ -61,6 +61,13 @@ public class Dog extends OrganicPets {
         soilLevel = 0;
     }
 
+    public void cleanCages() {
+        hunger = hunger -4;
+        thirst = thirst -2;
+        happiness = happiness - 5;
+        soilLevel = 0;
+    }
+
     @Override
     public void editHealth() {
 
@@ -103,12 +110,5 @@ public class Dog extends OrganicPets {
             System.out.println("--------" + name + " cage is too dirty, it needs to be cleaned!!! --------");
         }
 
-    }
-
-    public void cleanCages() {
-        hunger = hunger -4;
-        thirst = thirst -2;
-        happiness = happiness - 5;
-        soilLevel = 0;
     }
 }

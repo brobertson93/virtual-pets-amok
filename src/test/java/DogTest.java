@@ -44,6 +44,7 @@ public class DogTest {
     @Test
     public void shouldHaveCagesCleaned() {
         underTest.cleanCages();
+        assertEquals(underTest.getSoilLevel(), 0);
     }
 
 

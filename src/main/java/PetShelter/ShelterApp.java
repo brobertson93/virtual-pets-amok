@@ -197,10 +197,10 @@ public class ShelterApp {
                 for (Map.Entry<String, Pets> entry : myPets.entrySet()) {
 
 
-                    if(entry.getValue().getClass().getName().equals("PelShelter.Dog")){
+                    if(entry.getValue().getClass().getName().equals("PetShelter.Dog")){
 
-
-
+                    Dog placeHolder = (Dog) entry.getValue();
+                    placeHolder.cleanCages();
 
 
                     }
@@ -273,31 +273,39 @@ public class ShelterApp {
                 }
                 myPets.remove(key);
             }
+            if (myPets.size() == 0) {
+
+                String name;
+                String catOrDog;
+                String petType;
+                System.out.println("Oh no! The shelter is out of pets, would you like to add another?");
+                System.out.println("What is your pets name?");
+                name = input.nextLine();
+                System.out.println("Is your pet a Cat or a Dog?");
+                catOrDog = input.nextLine().toLowerCase();
+                System.out.println("Is your " + catOrDog + " is your pet Living or a Robot?");
+                petType = input.nextLine().toLowerCase();
+
+                if (catOrDog.equals("dog") && petType.equals("living")) {
+
+                    Dog test = new Dog(name, 10,25, 25, 25, 0, true);
+                    myPets.put(name, test);
+
+                } else if (catOrDog.equals("dog") && petType.equals("robot")) {
+                    RoboDog test = new RoboDog(name, 10,25, 25, false);
+                    myPets.put(name, test);
+
+                } else if (catOrDog.equals("cat") && petType.equals("living")) {
+                    Cat test = new Cat(name, 10, 25, 25, 25, true);
+                    myPets.put(name, test);
+
+                } else if (catOrDog.equals("cat") && petType.equals("robot")) {
+                    RoboCat test = new RoboCat(name, 10, 25, 25, false);
+                    myPets.put(name, test);
+
+                }
+
+            }
         }
     }
 }
-//        Dog pet1 = new Dog("Frank",100,100,100,0,true,"Dog");
-//        Cat pet2 = new Cat("Jonathon", 100, 20, 50, true);
-//
-//        Map<String, Pets> myPets = new HashMap<String, Pets>();
-//
-//        myPets.put("Frank", pet1);
-//        myPets.put("Jonathon", pet2);
-//
-//
-//        Pets test = myPets.get("Frank");
-//    //    Pets test2 = myPets.get("Jonathon");
-//
-//
-//       // System.out.println(test2.name);
-//
-
-//
-//        else if(entry.getValue().getClass().getName() == "PetShelter.Cat") {
-//
-//            System.out.println(entry.getKey() + "Is a cat!");
-//
-//
-//
-//
-//        }
