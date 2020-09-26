@@ -17,4 +17,11 @@ public class RoboDogTest {
         assertEquals(underTest.getHappiness(),40);
         assertEquals(underTest.getOilLevel(),10);
     }
+
+    @Test
+    public void shouldBeAbleToBePlayedWith(){
+        underTest.playWithAnimals();
+        assertEquals(underTest.getOilLevel(),20);
+        assertEquals(underTest.getHappiness(),40);
+    }
 }

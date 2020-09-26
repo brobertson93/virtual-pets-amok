@@ -1,3 +1,4 @@
+
 import PetShelter.Dog;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,6 +47,13 @@ public class DogTest {
         underTest.cleanCages();
         assertEquals(underTest.getSoilLevel(), 0);
     }
-
+@Test
+    public void testsHealthLevelOfDogAndModifiesIt() {
+    underTest.editHealth();
+    assertEquals(underTest.getHealth(),103);
+    Dog underTest2 = new Dog("John",10,-1,-2,5,0,true);
+    underTest2.editHealth();
+    assertEquals(underTest2.getHealth(),6);
+}
 
 }

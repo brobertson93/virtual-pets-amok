@@ -63,6 +63,19 @@ public class CatTest {
 @Test
     public void checksThePetsHealthAndModifiesIt(){
         underTest.editHealth();
+        assertEquals(underTest.getHealth(),103);
+        Cat underTest2 = new Cat("John",10,-1,-2,5,true);
+        underTest2.editHealth();
+        assertEquals(underTest2.getHealth(),6);
 
+    }
+
+    @Test
+    public void checkPlayWithAnimals() {
+        underTest.playWithAnimals();
+        assertEquals(underTest.getHunger(),98);
+        assertEquals(underTest.getThirst(),96);
+        assertEquals(underTest.getSoilLevel(),2);
+        assertEquals(underTest.getHappiness(),110);
     }
 }
